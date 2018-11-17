@@ -7,11 +7,12 @@ public class Shooting : MonoBehaviour {
 	[SerializeField] GameObject[] projectilePrefab; // Prefab to create the projectile
 	[SerializeField] Transform projectileSpawn; // Where the projectile is instantiated
 	[SerializeField] AudioClip[] gunEffects;
+	[SerializeField] GameObject currentPlayer;
 	int currentAmmo = 0;
 
 	HUDManager HUDMgr;
 	AudioSource aud;
-
+	PlayerData currentPlayerData;
 	bool upgrade = false;
 
 	// Use this for initialization
@@ -25,6 +26,9 @@ public class Shooting : MonoBehaviour {
 				aud = childComponents[i];
 			}
 		}
+
+		currentPlayerData = currentPlayer.GetComponent<PlayerData>();
+		Debug.Log(currentPlayerData);
 	}
 	
 	// Update is called once per frame
@@ -81,7 +85,12 @@ public class Shooting : MonoBehaviour {
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			GunSound(0);
-			Instantiate (projectilePrefab[currentAmmo], projectileSpawn.position, projectileSpawn.rotation);
+			GameObject currentProjectile = Instantiate (projectilePrefab[currentAmmo], projectileSpawn.position, projectileSpawn.rotation);
+			Projectile ammo = currentProjectile.GetComponent<Projectile>();
+			if(ammo == null)
+				ammo = currentProjectile.GetComponentInChildren<Projectile>();
+			Debug.Log(ammo);
+			currentPlayerData.UpdateMoney(-1 * ammo.cost);
 		}
 	} 
 

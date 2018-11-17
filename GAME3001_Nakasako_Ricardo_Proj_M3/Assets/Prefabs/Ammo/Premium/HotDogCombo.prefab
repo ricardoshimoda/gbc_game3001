@@ -226,5 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ea177bae6e644eaed26d6f5a9800f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 100
+  projectileSpeed: 600
   disappearTime: 10
+  content: 0400000001000000
+  cost: 3
+  sell: 20

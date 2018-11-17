@@ -53,4 +53,8 @@ public class HUDManager : MonoBehaviour {
 		reputationBar.fillAmount = (float)newReputation/100.0f;
 		reputationText.text = newReputation + "/100";
 	}
+
+	public void ChangePlayerMoney(int newMoney){
+		earnings.text = newMoney.ToString();
+	}
 }

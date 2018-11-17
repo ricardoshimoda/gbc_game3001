@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour {
 
 	[SerializeField] float projectileSpeed;
 	[SerializeField] float disappearTime; 
+	[SerializeField] public Food[] content;
+	[SerializeField] public int cost;
+	[SerializeField] public int sell;
+
 	Rigidbody rig;
 
 	// Use this for initialization
@@ -16,8 +20,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("Projectile Says: " + other.gameObject.tag);
-		if (other.gameObject.tag == "Beggar" || 
+		if (other.gameObject.tag == "Zombie" || 
 			other.gameObject.tag == "Customer") {
 			Destroy (gameObject);
 		}

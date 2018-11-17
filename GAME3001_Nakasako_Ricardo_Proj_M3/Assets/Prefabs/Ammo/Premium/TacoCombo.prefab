@@ -1175,5 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ea177bae6e644eaed26d6f5a9800f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 0
-  disappearTime: 0
+  projectileSpeed: 600
+  disappearTime: 10
+  content: 06000000
+  cost: 10
+  sell: 30

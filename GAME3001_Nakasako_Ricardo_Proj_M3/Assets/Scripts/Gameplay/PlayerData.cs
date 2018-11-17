@@ -14,10 +14,11 @@ public class PlayerData : MonoBehaviour {
 	void Start () {
 		Stamina = 100;
 		Reputation = 100;
-		Money = 0;
+		Money = 500;
 		active = true;
 		GameObject HUD = GameObject.FindGameObjectWithTag("HUD");
 		HUDMgr = HUD.GetComponent<HUDManager>();
+		HUDMgr.ChangePlayerMoney(Money);
 
 	}
 	
@@ -35,9 +36,13 @@ public class PlayerData : MonoBehaviour {
 	}
 
 	void VerifyGameOver(){
-		if (Stamina == 0 || Reputation == 0) {			
+		if (Stamina == 0 || Reputation == 0 || Money == 0) {		
 			Destroy (gameObject, 2);
 		}
+	}
+
+	public bool IsGameOver(){
+		return Stamina == 0 || Reputation == 0 || Money <= 0;
 	}
 
 	public void DecreaseStamina(){
@@ -61,10 +66,14 @@ public class PlayerData : MonoBehaviour {
 		HUDMgr.ChangePlayerReputation(Reputation);
 	}
 
-	public void IncreaseMoney(){
-		var profit = Random.Range (5, 15);
-		Debug.Log ("Profit" + profit);
-		Money += profit;
+	public void UpdateMoney(int Amount){
+		if(Amount > 0){
+			float tip = Random.Range ((float)Amount*0.10f, (float)Amount*0.3f);
+			Money += (int)Mathf.Floor(tip);
+		}
+		Money += Amount;
+		if(Money < 0) Money = 0; /* Game Over... */
+		HUDMgr.ChangePlayerMoney(Money);
 	}
 
 	public int GetStamina(){

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour {
 
-
-	[SerializeField] AudioClip ThankYou;
-	[SerializeField] AudioClip Ouch;
-
+	[SerializeField] AudioClip thankYou;
+	[SerializeField] AudioClip ouch;
+	[SerializeField] Food[] cravings;
 	bool active;
+	int payment;
 
 	// Use this for initialization
 	void Start () {
 		active = true;
+		payment = 0;
 	}
 
 	// Update is called once per frame
@@ -25,7 +26,8 @@ public class Customer : MonoBehaviour {
 		aud.clip = correctAudioClip;
 		Destroy (projectile);
 		aud.Play ();
-		Destroy (gameObject, 1.2f);
+		//Debug.Log("Play the sound, dammit!");
+		Destroy (gameObject.transform.parent.gameObject, 1.2f);
 		active = false;
 	}
 
@@ -36,14 +38,36 @@ public class Customer : MonoBehaviour {
 			var player = GameObject.FindGameObjectWithTag ("Hero");
 			var playerData = player.GetComponent<PlayerData> ();
 			if (other.gameObject.tag == "Food") {
-				playerData.IncreaseReputation ();
-				playerData.IncreaseMoney ();
-				PlaySoundAndDeactivate (ThankYou, other.gameObject.transform.parent.gameObject);
+				Projectile bullet = other.gameObject.GetComponent<Projectile>();
+				if(bullet == null) bullet = other.gameObject.GetComponentInChildren<Projectile>();
+				bool foundIt = false;
+				for(int i = 0; i < bullet.content.Length; i++){
+					for(int j = 0; j < cravings.Length; j++){
+						if(cravings[j] == bullet.content[i]){
+							foundIt = true;
+							cravings[j] = Food.Satisfied;
+							bullet.content[i] = Food.Satisfied; // Consumed...
+							Debug.Log(bullet.sell);
+							payment += bullet.sell;
+						}
+					}
+				}
+				bool completelySatisfied = true;
+				for(int k = 0; k < cravings.Length; k++){
+					if(cravings[k] != Food.Satisfied){
+						completelySatisfied = false;
+					}
+				}
+				if(completelySatisfied){
+					playerData.IncreaseReputation ();
+					playerData.UpdateMoney (payment);
+					PlaySoundAndDeactivate (thankYou, other.gameObject.transform.parent.gameObject);
+				}
 			} else if (other.gameObject.tag == "Rock") {
 				playerData.DecreaseReputation ();
-				PlaySoundAndDeactivate (Ouch, other.gameObject.transform.parent.gameObject);
+				PlaySoundAndDeactivate (ouch, other.gameObject.transform.parent.gameObject);
 			} else if (other.gameObject.tag == "Hero") {
-				PlaySoundAndDeactivate(Ouch, other.gameObject.transform.parent.gameObject);
+				PlaySoundAndDeactivate(ouch, other.gameObject.transform.parent.gameObject);
 				playerData.DecreaseStamina ();
 			}
 		}

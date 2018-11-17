@@ -155,3 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 600
   disappearTime: 10
+  content: 04000000
+  cost: 2
+  sell: 5

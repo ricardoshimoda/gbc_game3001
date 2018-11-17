@@ -6,13 +6,13 @@ TagManager:
   tags:
   - Food
   - Rock
-  - Beggar
   - Customer
   - Hero
   - Combo
   - Decoration
   - HUD
   - CustomerProximity
+  - Zombie
   layers:
   - Default
   - TransparentFX
