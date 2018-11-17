@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 54ed7e88b5fbcb94ab7d19b33581ef45
+timeCreated: 1539122171
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bob's Burgers
+  fontNames:
+  - Bob's Burgers
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
