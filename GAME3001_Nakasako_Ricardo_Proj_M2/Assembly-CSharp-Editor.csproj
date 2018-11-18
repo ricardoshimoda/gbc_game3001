@@ -59,11 +59,11 @@
      <Compile Include="Assets\ExternalAssets\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
      <Compile Include="Assets\ExternalAssets\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
      <Compile Include="Assets\ExternalAssets\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
- <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/Projects/GBC/03/GAME3001/gbc_game3001/GAME3001_Nakasako_Ricardo_Proj_M2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
- </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>D:/Projects/GBC/03/GAME3001/gbc_game3001/GAME3001_Nakasako_Ricardo_Proj_M2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.StandardEvents">
+ <HintPath>D:/Projects/GBC/03/GAME3001/gbc_game3001/GAME3001_Nakasako_Ricardo_Proj_M2/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -238,9 +238,6 @@
  </Reference>
  <Reference Include="Unity.Locator">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Unity.Locator.dll</HintPath>
- </Reference>
- <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/Projects/GBC/03/GAME3001/gbc_game3001/GAME3001_Nakasako_Ricardo_Proj_M2/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

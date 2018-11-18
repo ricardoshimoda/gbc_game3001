@@ -55,6 +55,10 @@
   <ItemGroup>
      <Compile Include="Assets\ExternalAssets\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
      <Compile Include="Assets\ExternalAssets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Scripts\NavMeshLink.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
      <Compile Include="Assets\ExternalAssets\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
      <Compile Include="Assets\ExternalAssets\Standard Assets\Cameras\Scripts\AutoCam.cs" />
      <Compile Include="Assets\ExternalAssets\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
@@ -123,6 +127,8 @@
      <Compile Include="Assets\ExternalAssets\UIFromUnity\Sample\ScrollDetailTexture.cs" />
      <Compile Include="Assets\ExternalAssets\UIFromUnity\Sample\ShowSliderValue.cs" />
      <Compile Include="Assets\ExternalAssets\UIFromUnity\Sample\TiltWindow.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\AgentScript.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\AgentStates.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Customer.cs" />
      <Compile Include="Assets\Scripts\Gameplay\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Food.cs" />
@@ -130,6 +136,7 @@
      <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Seeker.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Shooting.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Zombie.cs" />
      <Compile Include="Assets\Scripts\UI\BubbleSpeech.cs" />
      <Compile Include="Assets\Scripts\UI\HUDManager.cs" />

@@ -158,3 +158,4 @@ MonoBehaviour:
   content: 04000000
   cost: 2
   sell: 5
+  root: {fileID: 1836846153128996}

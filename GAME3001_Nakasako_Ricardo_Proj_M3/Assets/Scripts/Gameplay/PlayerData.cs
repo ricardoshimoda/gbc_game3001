@@ -14,7 +14,7 @@ public class PlayerData : MonoBehaviour {
 	void Start () {
 		Stamina = 100;
 		Reputation = 100;
-		Money = 500;
+		Money = 50;
 		active = true;
 		GameObject HUD = GameObject.FindGameObjectWithTag("HUD");
 		HUDMgr = HUD.GetComponent<HUDManager>();
@@ -47,21 +47,18 @@ public class PlayerData : MonoBehaviour {
 
 	public void DecreaseStamina(){
 		var staminaLoss =  Random.Range (1, 10);
-		Debug.Log ("StaminaLoss: " + staminaLoss);
 		Stamina = Mathf.Clamp( Stamina - staminaLoss, 0, 100);
 		HUDMgr.ChangePlayerStamina(Stamina);
 	}
 
 	public void DecreaseReputation(){
 		var reputationLoss = Random.Range (1, 10);
-		Debug.Log ("ReputationLoss:" + reputationLoss);
 		Reputation = Mathf.Clamp( Reputation - reputationLoss, 0, 100);
 		HUDMgr.ChangePlayerReputation(Reputation);
 	}
 
 	public void IncreaseReputation(){
 		var reputationGain = Random.Range (1, 10);
-		Debug.Log ("ReputationGain" + reputationGain);
 		Reputation = Mathf.Clamp( Reputation + reputationGain, 0, 100);
 		HUDMgr.ChangePlayerReputation(Reputation);
 	}
@@ -82,5 +79,9 @@ public class PlayerData : MonoBehaviour {
 
 	public int GetReputation(){
 		return Reputation;
+	}
+
+	public int GetMoney(){
+		return Money;
 	}
 }

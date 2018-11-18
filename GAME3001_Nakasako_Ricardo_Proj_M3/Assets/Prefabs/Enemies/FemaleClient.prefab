@@ -533,6 +533,8 @@ GameObject:
   - component: {fileID: 4463045524376618}
   - component: {fileID: 135281531718596988}
   - component: {fileID: 114407545778950210}
+  - component: {fileID: 195014150395844698}
+  - component: {fileID: 114197762180060666}
   m_Layer: 0
   m_Name: FemaleClient
   m_TagString: CustomerProximity
@@ -1283,6 +1285,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114197762180060666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917006277020692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36404415beec574cbaa6b2c98a220ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 195014150395844698}
+  heroTransform: {fileID: 0}
+  selfTransform: {fileID: 4463045524376618}
+  seekDistance: 14
 --- !u!114 &114308273286015132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1450,6 +1467,27 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.10153887, y: 0.048859484, z: 0.000000059604645}
     m_Extent: {x: 0.55091107, y: 0.26034003, z: 0.76219064}
   m_DirtyAABB: 0
+--- !u!195 &195014150395844698
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917006277020692}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!222 &222137262369903304
 CanvasRenderer:
   m_ObjectHideFlags: 1

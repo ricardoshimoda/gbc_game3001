@@ -26,19 +26,19 @@ public class Seeker : MonoBehaviour {
 	private bool firstLog = true;
 	private bool firstStone = true;
 
+	private GameObject[] spawnPoints;
+
 	void Start()
 	{
+		targetObj =  GameObject.FindGameObjectWithTag("Hero").transform;
+		spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
 		GetNewDest ();
 		SetWandering(true);
-		targetObj =  GameObject.FindGameObjectWithTag("Hero").transform;
 	}
 
 	void Update () {
+		if(targetObj == null || spawnPoints == null) return;
 		distTo = Vector3.Distance(transform.position, targetObj.position);
-		if (firstLog) {
-			Debug.Log (distTo);
-			firstLog = false;
-		}
 		if (isMoving) {
 			firstStone = true;
 			if (isWandering) {
@@ -90,6 +90,7 @@ public class Seeker : MonoBehaviour {
 	}
 
 	void ShootRock(){
+		return;
 		Instantiate (rock, rockSpawn.position, rockSpawn.rotation);
 		Invoke ("ShootRock", Random.Range (5, 10));
 	}
@@ -107,10 +108,7 @@ public class Seeker : MonoBehaviour {
 
 	private void GetNewDest(){
 		getNewInitialWandering = true;
-		destRot = transform.rotation;
-		/* wanders in a new angle */
-		var newAngle = Random.Range (-90, 90);
-		Debug.Log (newAngle);
-		destRot *= Quaternion.Euler (0,newAngle,0);
+		int indexNewDestination = Random.Range(0,spawnPoints.Length-1);
+		destRot = spawnPoints[indexNewDestination].transform.rotation;
 	}
 }

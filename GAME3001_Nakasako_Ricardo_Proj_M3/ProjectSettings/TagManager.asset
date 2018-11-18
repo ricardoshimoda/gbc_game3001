@@ -13,6 +13,7 @@ TagManager:
   - HUD
   - CustomerProximity
   - Zombie
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Terrain
   - 
   - 
   - 

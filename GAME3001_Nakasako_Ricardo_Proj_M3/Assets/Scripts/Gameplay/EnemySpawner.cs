@@ -6,22 +6,49 @@ public class EnemySpawner : MonoBehaviour {
 
 	[SerializeField] GameObject hero;
 	[SerializeField] GameObject[] enemies;
+	[SerializeField] Transform[] spawnPoints;
+	[SerializeField] float minTimeForNewEnemy;
+	[SerializeField] float maxTimeForNewEnemy;
+	PlayerData currentPlayer;
+
 
 	// Use this for initialization
 	void Start () {
-		Invoke ("SpawnEnemy", Random.Range(5,10));
+		Invoke ("SpawnEnemy", Random.Range(minTimeForNewEnemy, maxTimeForNewEnemy));
+		currentPlayer = hero.GetComponent<PlayerData>();
 	}
 
+	int EnemySelection(){
+		int selectedEnemy = 0;
+		int money = currentPlayer.GetMoney();
+		if(money < 100){
+			selectedEnemy = Random.Range(0,2);
+		} else if(money < 200){
+			selectedEnemy = Random.Range(1,4);
+		} else {
+			selectedEnemy = 5;
+		}
+		return selectedEnemy;
+	}
+
+	int SpawnWhere(){
+		int spawnIndex = Random.Range(0,14);
+		float distanceFromPlayer = Vector3.Distance(spawnPoints[spawnIndex].position, hero.transform.position);
+		while(distanceFromPlayer < 14.1){
+			spawnIndex++;
+			distanceFromPlayer = Vector3.Distance(spawnPoints[spawnIndex].position, hero.transform.position);
+		}
+		return spawnIndex;
+	}
+
+
 	void SpawnEnemy(){
-		int whichEnemy = Random.Range (0, 1);
-		/*
-		Vector3 newEnemyPosition = new Vector3 (
-			hero.transform.position.x + Random.Range (10, 30), 
-			hero.transform.position.y, 
-			hero.transform.position.z + Random.Range (10, 30));
-		Instantiate (enemies[whichEnemy], newEnemyPosition, hero.transform.rotation);
-		Invoke ("SpawnEnemy", Random.Range(5,10));
-		 */
+		if(!currentPlayer.IsGameOver()){
+			int whichEnemy = EnemySelection();
+			int spawnPositon = SpawnWhere();
+			Instantiate (enemies[whichEnemy], spawnPoints[spawnPositon].position, hero.transform.rotation);
+			Invoke ("SpawnEnemy", Random.Range(minTimeForNewEnemy, maxTimeForNewEnemy));
+		}
 	}
 
 }

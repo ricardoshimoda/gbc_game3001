@@ -54,6 +54,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ExternalAssets\LowPolyWater_Pack\Scripts\Editor\GeneratePlane.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+     <Compile Include="Assets\ExternalAssets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Projects/GBC/03/GAME3001/gbc_game3001/GAME3001_Nakasako_Ricardo_Proj_M3/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

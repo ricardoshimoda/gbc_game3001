@@ -174,3 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 1000
   disappearTime: 10
+  content: 
+  cost: 0
+  sell: 0
+  root: {fileID: 1656798962807156}

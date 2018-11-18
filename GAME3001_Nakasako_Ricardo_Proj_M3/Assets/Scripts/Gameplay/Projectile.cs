@@ -9,12 +9,14 @@ public class Projectile : MonoBehaviour {
 	[SerializeField] public Food[] content;
 	[SerializeField] public int cost;
 	[SerializeField] public int sell;
+	[SerializeField] GameObject root;
 
 	Rigidbody rig;
 
 	// Use this for initialization
 	void Start () {
-		Destroy (gameObject, disappearTime);
+
+		Destroy (root, disappearTime);
 		rig = this.GetComponentInChildren<Rigidbody> ();
 		rig.AddForce (transform.forward * projectileSpeed);
 	}
@@ -22,7 +24,7 @@ public class Projectile : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Zombie" || 
 			other.gameObject.tag == "Customer") {
-			Destroy (gameObject);
+			Destroy (root);
 		}
 	}
 
