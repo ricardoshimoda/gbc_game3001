@@ -593,6 +593,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1966154962764002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4653337831675350}
+  m_Layer: 0
+  m_Name: RockSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1979038728479918
 GameObject:
   m_ObjectHideFlags: 1
@@ -831,6 +846,19 @@ Transform:
   m_Father: {fileID: 4084788648363640}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4653337831675350
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966154962764002}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.89, z: 0.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4743983907062924}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4655385404527078
 Transform:
   m_ObjectHideFlags: 1
@@ -948,9 +976,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1821011508578486}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
-  m_LocalPosition: {x: 74.57611, y: 200.04192, z: 91.20802}
+  m_LocalPosition: {x: 47.66496, y: 200.1174, z: 158.6118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4653337831675350}
   - {fileID: 4840703356191994}
   - {fileID: 224157360372195954}
   m_Father: {fileID: 0}
@@ -1000,7 +1029,7 @@ Transform:
   - {fileID: 4711053717369774}
   - {fileID: 4656726408284710}
   m_Father: {fileID: 4743983907062924}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4841914383682806
 Transform:
@@ -1444,6 +1473,10 @@ MonoBehaviour:
   heroTransform: {fileID: 0}
   selfTransform: {fileID: 4743983907062924}
   seekDistance: 20
+  minIntervalRocks: 10
+  maxIntervalRocks: 30
+  rock: {fileID: 1335284930150374, guid: 2c4eed6558139a943acd35508958d79f, type: 2}
+  rockSpawn: {fileID: 4653337831675350}
 --- !u!114 &114838363106342294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1583,7 +1616,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1671,7 +1704,7 @@ RectTransform:
   m_Children:
   - {fileID: 224523129450199776}
   m_Father: {fileID: 4743983907062924}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		Destroy (root, disappearTime);
 		rig = this.GetComponentInChildren<Rigidbody> ();
 		rig.AddForce (transform.forward * projectileSpeed);
@@ -23,7 +22,8 @@ public class Projectile : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Zombie" || 
-			other.gameObject.tag == "Customer") {
+			other.gameObject.tag == "Customer" ||
+			other.gameObject.tag == "Rock" ) {
 			Destroy (root);
 		}
 	}

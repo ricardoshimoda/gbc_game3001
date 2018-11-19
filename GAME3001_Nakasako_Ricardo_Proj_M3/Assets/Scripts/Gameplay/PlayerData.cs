@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour {
 
@@ -8,13 +9,14 @@ public class PlayerData : MonoBehaviour {
 	int Reputation;
 	int Money;
 	bool active;
+	bool upgraded = false;
 
 	HUDManager HUDMgr;
 
 	void Start () {
 		Stamina = 100;
 		Reputation = 100;
-		Money = 50;
+		Money = 110;
 		active = true;
 		GameObject HUD = GameObject.FindGameObjectWithTag("HUD");
 		HUDMgr = HUD.GetComponent<HUDManager>();
@@ -29,15 +31,24 @@ public class PlayerData : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Rock") {
+		if (other.gameObject.tag == "Rock2" || other.gameObject.tag == "Rock") {
 			DecreaseStamina ();
 
 		}
 	}
 
 	void VerifyGameOver(){
-		if (Stamina == 0 || Reputation == 0 || Money == 0) {		
-			Destroy (gameObject, 2);
+		if (Stamina == 0 ){
+			SceneManager.LoadScene("Dead");
+			return;
+		}
+		if(Reputation == 0){
+			SceneManager.LoadScene("Failure");
+			return;
+		}
+		if(Money == 0) {		
+			SceneManager.LoadScene("Bankrupt");
+			return;
 		}
 	}
 
@@ -69,6 +80,14 @@ public class PlayerData : MonoBehaviour {
 			Money += (int)Mathf.Floor(tip);
 		}
 		Money += Amount;
+		if(Money > 120 && Amount > 0 && !upgraded){
+			HUDMgr.UpgradeMenu();
+			upgraded = true;
+		}
+		if(Money < 100 && Amount < 0 && upgraded){
+			HUDMgr.DowngradeMenu();
+			upgraded = false;
+		}
 		if(Money < 0) Money = 0; /* Game Over... */
 		HUDMgr.ChangePlayerMoney(Money);
 	}
@@ -83,5 +102,8 @@ public class PlayerData : MonoBehaviour {
 
 	public int GetMoney(){
 		return Money;
+	}
+	public bool GetUpgraded(){
+		return upgraded;
 	}
 }

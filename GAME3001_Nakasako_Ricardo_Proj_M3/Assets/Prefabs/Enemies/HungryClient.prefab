@@ -150,6 +150,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1342156349768736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4351109113470412}
+  m_Layer: 0
+  m_Name: RockSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1346070260005734
 GameObject:
   m_ObjectHideFlags: 1
@@ -216,7 +231,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1469026740634058
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -704,9 +719,8 @@ Transform:
   m_Children:
   - {fileID: 4805735696374436}
   - {fileID: 4235530132500582}
-  - {fileID: 224350027001973738}
   m_Father: {fileID: 4803635378156148}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4167087199111066
 Transform:
@@ -775,6 +789,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4272971813602652}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4351109113470412
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342156349768736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.89, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4803635378156148}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4352592271938708
 Transform:
@@ -925,10 +952,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868974248715562}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
-  m_LocalPosition: {x: 73.39264, y: 200.09207, z: 108.13462}
+  m_LocalPosition: {x: 48.758377, y: 200.07375, z: 161.25977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 224350027001973738}
   - {fileID: 4159430043952552}
+  - {fileID: 4351109113470412}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1456,6 +1485,10 @@ MonoBehaviour:
   heroTransform: {fileID: 0}
   selfTransform: {fileID: 4803635378156148}
   seekDistance: 14
+  minIntervalRocks: 10
+  maxIntervalRocks: 30
+  rock: {fileID: 1335284930150374, guid: 2c4eed6558139a943acd35508958d79f, type: 2}
+  rockSpawn: {fileID: 4351109113470412}
 --- !u!114 &114904786240509496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1583,7 +1616,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1710,12 +1743,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224022558390621970}
-  m_Father: {fileID: 4159430043952552}
-  m_RootOrder: 2
+  m_Father: {fileID: 4803635378156148}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.24}
+  m_AnchoredPosition: {x: 0, y: 2.2400055}
   m_SizeDelta: {x: 0.7, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224473470521384024

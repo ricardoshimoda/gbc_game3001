@@ -11,9 +11,17 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField] Image staminaBar;
 	[SerializeField] Image reputationBar;
 	[SerializeField] Text earnings;
+	[SerializeField] Text upgradePanel;
+	[SerializeField] AudioClip[] gradeSounds;
 
 	Color Unselected = new Color(1,1,1,0.5f);
 	Color Selected = new Color(0,1,0,0.5f);
+
+	AudioSource aud;
+
+	void Start(){
+		aud = GetComponent<AudioSource>();
+	}
 
 	public void ChangeAmmo(int currentAmmo, int nextAmmo){
 		var newTrans = ammoPanels[currentAmmo].GetComponent<Image>();
@@ -22,6 +30,26 @@ public class HUDManager : MonoBehaviour {
 		newGreen.color = Selected;
 	}
 
+	public void UpgradeMenu(){
+		aud.clip = gradeSounds[0];
+		aud.Play();
+		upgradePanel.enabled = true;
+		UpgradeFood(1);
+		UpgradeFood(3);
+		UpgradeFood(4);
+		UpgradeFood(5);
+		UpgradeFood(6);
+	}
+	public void DowngradeMenu(){
+		aud.clip = gradeSounds[1];
+		aud.Play();
+		upgradePanel.enabled = false;
+		DowngradeFood(1);
+		DowngradeFood(3);
+		DowngradeFood(4);
+		DowngradeFood(5);
+		DowngradeFood(6);
+	}
 	public void UpgradeFood(int upgradeAmmo){
 		Image[] Icons = ammoPanels[upgradeAmmo].GetComponentsInChildren<Image>();
 		for(int i = 0; i < Icons.Length; i++){

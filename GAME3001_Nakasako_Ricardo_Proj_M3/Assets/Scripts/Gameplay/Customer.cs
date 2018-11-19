@@ -21,10 +21,9 @@ public class Customer : MonoBehaviour {
 
 	}
 
-	void PlaySoundAndDeactivate(AudioClip correctAudioClip, GameObject projectile){
+	void PlaySoundAndDeactivate(AudioClip correctAudioClip){
 		var aud = this.GetComponent<AudioSource> ();
 		aud.clip = correctAudioClip;
-		Destroy (projectile);
 		aud.Play ();
 		//Debug.Log("Play the sound, dammit!");
 		Destroy (gameObject.transform.parent.gameObject, 1.2f);
@@ -33,11 +32,10 @@ public class Customer : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log (other.gameObject.tag);
 		if (active) {
 			var player = GameObject.FindGameObjectWithTag ("Hero");
 			var playerData = player.GetComponent<PlayerData> ();
-			if (other.gameObject.tag == "Food") {
+			if (other.gameObject.tag == "Food" || other.gameObject.tag == "Combo") {
 				Projectile bullet = other.gameObject.GetComponent<Projectile>();
 				if(bullet == null) bullet = other.gameObject.GetComponentInChildren<Projectile>();
 				bool foundIt = false;
@@ -61,13 +59,13 @@ public class Customer : MonoBehaviour {
 				if(completelySatisfied){
 					playerData.IncreaseReputation ();
 					playerData.UpdateMoney (payment);
-					PlaySoundAndDeactivate (thankYou, other.gameObject.transform.parent.gameObject);
+					PlaySoundAndDeactivate (thankYou);
 				}
 			} else if (other.gameObject.tag == "Rock") {
 				playerData.DecreaseReputation ();
-				PlaySoundAndDeactivate (ouch, other.gameObject.transform.parent.gameObject);
+				PlaySoundAndDeactivate (ouch);
 			} else if (other.gameObject.tag == "Hero") {
-				PlaySoundAndDeactivate(ouch, other.gameObject.transform.parent.gameObject);
+				PlaySoundAndDeactivate(ouch);
 				playerData.DecreaseStamina ();
 			}
 		}

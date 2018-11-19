@@ -210,7 +210,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956912527022974}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.13250732, y: 0.1144675, z: 0.16134644}
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 600
-  disappearTime: 10
+  disappearTime: 3
   content: 0400000001000000
   cost: 3
   sell: 20
+  root: {fileID: 0}

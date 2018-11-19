@@ -38,6 +38,7 @@ public class WanderState : IState
         }
 		var distTo = Vector3.Distance(actor.selfTransform.position, actor.heroTransform.position);
 		if(distTo < actor.seekDistance){
+            Debug.Log("Changing State");
             sm.ChangeState(states[1]);
 		}
     }
@@ -57,7 +58,7 @@ public class WanderState : IState
 public class HungerState : IState
 {
     //ClickScript cs;
-
+    private bool firstStone = true;
     public HungerState(StateMachine m, List<IState> l, AgentScript a)
     {
         sm = m;
@@ -79,10 +80,16 @@ public class HungerState : IState
             {
                 if (!actor.agent.hasPath || actor.agent.velocity.sqrMagnitude == 0f)
                 {
-                    // Got to the target.
+                    if (firstStone) {
+                        Debug.Log("First Stone");
+                        firstStone = false;
+                        actor.Invoke ("ShootRock", Random.Range (actor.minIntervalRocks, actor.maxIntervalRocks));
+                    }
+                    return;
                 }
             }
         }
+        GetPlayerPosition();// follow the player
     }
 
     public override void Exit()
@@ -95,4 +102,5 @@ public class HungerState : IState
         actor.agent.destination = actor.heroTransform.position;
         actor.agent.isStopped = false;
     }
+
 }

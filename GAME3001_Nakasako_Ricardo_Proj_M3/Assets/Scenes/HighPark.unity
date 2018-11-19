@@ -1683,6 +1683,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4435280000066316, guid: a4ace125d7837d64a84b04c03cffed5e,
     type: 2}
   m_PrefabInternal: {fileID: 128909348}
+--- !u!1 &129795158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 129795159}
+  - component: {fileID: 129795161}
+  - component: {fileID: 129795160}
+  m_Layer: 5
+  m_Name: Upgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &129795159
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129795158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1665963396}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 300, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &129795160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129795158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 900e566a2dd8e56488ef6d50bd5e0124, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Upgraded!!
+--- !u!222 &129795161
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129795158}
 --- !u!1 &136426098 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1615805719796138, guid: 284fbbcd99660e84ab2645c992e5fb26,
@@ -20775,6 +20849,7 @@ GameObject:
   - component: {fileID: 1665963394}
   - component: {fileID: 1665963393}
   - component: {fileID: 1665963397}
+  - component: {fileID: 1665963398}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: HUD
@@ -20853,6 +20928,7 @@ RectTransform:
   - {fileID: 1773565937}
   - {fileID: 1503080752}
   - {fileID: 426775247}
+  - {fileID: 129795159}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20902,6 +20978,105 @@ MonoBehaviour:
   staminaBar: {fileID: 232688446}
   reputationBar: {fileID: 758882026}
   earnings: {fileID: 996363331}
+  upgradePanel: {fileID: 129795160}
+  gradeSounds:
+  - {fileID: 8300000, guid: e5452bb5451adec459c6018d92bfdb66, type: 3}
+  - {fileID: 8300000, guid: decd32d400f424c4f9cad5b4c355da97, type: 3}
+--- !u!82 &1665963398
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665963392}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1671789420
 Prefab:
   m_ObjectHideFlags: 0
@@ -24335,6 +24510,11 @@ Prefab:
       propertyPath: spawnPoints.Array.size
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4455743697161936, guid: 507ccbd66572ced43ad2f289673e91d6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 64.55
@@ -24486,13 +24666,61 @@ Prefab:
     - target: {fileID: 114824393785624752, guid: 507ccbd66572ced43ad2f289673e91d6,
         type: 2}
       propertyPath: minTimeForNewEnemy
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114824393785624752, guid: 507ccbd66572ced43ad2f289673e91d6,
         type: 2}
       propertyPath: maxTimeForNewEnemy
-      value: 45
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1656798962807156, guid: 9663f19fbcf866b4184b896f7fe850b4,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1268145342726212, guid: 3bb026e3da2d5554bb3cad4ca6745c7e,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1980991501620930, guid: de26c2ff0c45d204a9d75a8f50b554cf,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1956912527022974, guid: 167a3c0513442a646aae44e5ea789e0a,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[4]
+      value: 
+      objectReference: {fileID: 1479100573832330, guid: e6df049ece0fee1469cce2fb2faac904,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[5]
+      value: 
+      objectReference: {fileID: 1306894140938500, guid: ad48056e00578094991d39944fea8584,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[6]
+      value: 
+      objectReference: {fileID: 1952824671910990, guid: 2f2a45b14708b7b4ebadb60224d3d769,
+        type: 2}
+    - target: {fileID: 114492707540381650, guid: 507ccbd66572ced43ad2f289673e91d6,
+        type: 2}
+      propertyPath: upgradedProjectiles.Array.data[7]
+      value: 
+      objectReference: {fileID: 1637155579428996, guid: af59b0e817075f8459a6f73c0b33cae6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 507ccbd66572ced43ad2f289673e91d6, type: 2}
   m_IsPrefabParent: 0
